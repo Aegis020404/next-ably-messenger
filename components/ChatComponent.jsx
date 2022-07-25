@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useChannel } from "./ReactEffect";
 import styles from './ChatComponent.module.css';
+
 const ChatComponent = () => {
+
     let inputBox = null;
     let messageEnd = null;
 
@@ -42,12 +44,11 @@ const ChatComponent = () => {
         messageEnd.scrollIntoView({ behaviour: "smooth" });
     });
 
-
     return (
         <div className={styles.chatHolder}>
             <div className={styles.chatText}>
                 {messages}
-                <div ref={(element) => { messageEnd = element; }}></div> // empty element to control scroll to bottom
+                <div ref={(element) => { messageEnd = element; }}></div>
             </div>
             <form onSubmit={handleFormSubmission} className={styles.form}>
         <textarea
@@ -61,7 +62,7 @@ const ChatComponent = () => {
                 <button type="submit" className={styles.button} disabled={messageTextIsEmpty}>Send</button>
             </form>
         </div>
-    );
-};
+    )
+}
 
 export default ChatComponent;
